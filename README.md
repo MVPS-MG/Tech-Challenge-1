@@ -21,5 +21,12 @@ Esta etapa concentra-se em:
    ```bash
    pip install -r requirements.txt
    ```
-2. Abra o notebook em notebooks/eda_baseline.ipynb.
-3. Execute as células para visualizar a análise e treinar o baseline.
+2. Valide o estilo de código:
+   ```bash
+   black --check .
+   flake8 .
+   nbqa black --check notebooks
+   nbqa flake8 notebooks
+   ```
+3. Abra o notebook em notebooks/eda_baseline.ipynb.
+4. Execute as células para visualizar a análise e treinar o baseline.
