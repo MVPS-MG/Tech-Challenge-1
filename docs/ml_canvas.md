@@ -35,12 +35,14 @@ implementação da solução:
   alto risco?
 - Existe uma capacidade máxima de clientes que a equipe de retenção consegue
   abordar em determinado período?
+- O custo de não identificar um cliente que irá cancelar é maior que o custo de
+  abordar um cliente que não cancelaria?
 
 ### Critérios de sucesso
 
-- Existe um custo máximo aceitável por ação de retenção?
-- O custo de não identificar um cliente que irá cancelar é maior que o custo de
-  abordar um cliente que não cancelaria?
+- Reduzir a taxa de churn em 15%.
+- Manter o modelo em produção atendendo ao SLA acordado.
+
 
 ### Dados
 
@@ -57,6 +59,7 @@ implementação da solução:
 - Quais dados podem ser utilizados para tomada automatizada de decisão?
 - Quais recursos computacionais e de infraestrutura estão disponíveis?
 - Qual o prazo esperado para disponibilização da solução?
+- Qual a disponibilidade das partes envolvidas (perfis técnicos e stakeholders) para participarem do projeto?
 
 ## 4. Dados e variáveis relevantes
 
