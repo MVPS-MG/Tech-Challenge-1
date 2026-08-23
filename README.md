@@ -11,9 +11,12 @@ Esta etapa concentra-se em:
 
 ## Estrutura do projeto
 
-- data/: pasta para os arquivos de dados brutos.
-- notebooks/: notebook com EDA e baseline.
-- src/: código reutilizável para treinamento do modelo.
+- data/: arquivos de dados brutos.
+- notebooks/: notebooks de EDA e experimentação.
+- src/: código produtivo (pré-processamento, treino e API), refatorado a partir dos notebooks.
+- models/: modelo campeão treinado (.pkl/.joblib).
+- tests/: testes automatizados (pytest).
+- docs/: ML Canvas e Model Card.
 
 ## Como executar
 
