@@ -33,3 +33,22 @@ Esta etapa concentra-se em:
    ```
 3. Abra o notebook em notebooks/eda_baseline.ipynb.
 4. Execute as células para visualizar a análise e treinar o baseline.
+
+## Treinar o modelo e rodar a API
+
+1. Treine o modelo (salva em `models/champion_model.joblib`):
+   ```bash
+   python -m src.train
+   ```
+2. Suba a API:
+   ```bash
+   uvicorn src.api.main:app --reload
+   ```
+3. Endpoints disponíveis:
+   - `GET /health` — checa se a API está no ar.
+   - `POST /predict` — recebe os dados do cliente e retorna a propensão de churn.
+     Exemplo de payload em `tests/test_api.py`, ou veja `/docs` para o schema completo.
+4. Rode os testes:
+   ```bash
+   pytest
+   ```
