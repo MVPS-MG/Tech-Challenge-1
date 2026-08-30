@@ -1,4 +1,9 @@
-"""Treino do modelo baseline a partir dos módulos de src/.
+"""Treino do modelo campeão a partir dos módulos de src/.
+
+A comparação feita em notebooks/eda_baseline.ipynb (Etapa 2) mostrou que a
+Regressão Logística supera Random Forest e MLPClassifier neste dataset
+(F1-score em validação cruzada: 0.62 vs. 0.58 vs. 0.59), por isso é o
+estimador usado aqui.
 
 Uso: python -m src.train
 """
