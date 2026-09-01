@@ -16,5 +16,9 @@ app.include_router(router)
 
 for route_context in iter_route_contexts(router.routes):
     route = route_context.original_route
-    methods = sorted(route.methods) if route is not None and getattr(route, "methods", None) else "-"
-    logger.info("%s %s", methods, route_context.path )
+    methods = (
+        sorted(route.methods)
+        if route is not None and getattr(route, "methods", None)
+        else "-"
+    )
+    logger.info("%s %s", methods, route_context.path)

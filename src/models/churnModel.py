@@ -44,6 +44,7 @@ class CustomerFeatures(BaseModel):
     monthly_charges: float = Field(examples=[70.35])
     total_charges: float = Field(examples=[845.50])
 
+
 class ChurnPrediction(BaseModel):
     churn_probability: float
     churn_prediction: bool
