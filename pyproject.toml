@@ -7,3 +7,9 @@ extend-exclude = '''
   ^/\.venv
 )
 '''
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  "ignore:.*Using `httpx` with `starlette.testclient` is deprecated.*:Warning",
+  "ignore:.*Setting the shape on a NumPy array has been deprecated in NumPy 2.5.*:DeprecationWarning",
+]
