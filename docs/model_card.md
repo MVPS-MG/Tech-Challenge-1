@@ -10,7 +10,7 @@ Ver [ML Canvas](ml_canvas.md) para o contexto de negócio completo.
 - **Pipeline:** `StandardScaler`/`OneHotEncoder` + imputação (mediana/moda), via
   `src/preprocessing.py`
 - **Artefato:** `models/champion_model.joblib`, gerado por `python -m src.train`
-- **Servido por:** API FastAPI (`src/api/main.py`), endpoint `POST /predict`
+- **Servido por:** API FastAPI (`src/main.py`), endpoint `POST /predict`
 
 ## Dados de treino
 
@@ -29,11 +29,11 @@ Ver [ML Canvas](ml_canvas.md) para o contexto de negócio completo.
 Comparados via validação cruzada estratificada (5 folds) sobre o conjunto de treino
 (ver `notebooks/eda_baseline.ipynb`, Etapa 2):
 
-| Modelo | F1-score (CV) | AUC-ROC (CV) |
-|---|---|---|
-| **Regressão Logística** | **0.62** | **0.86** |
-| MLPClassifier | 0.59 | 0.85 |
-| Random Forest | 0.58 | 0.84 |
+| Modelo                  | F1-score (CV) | AUC-ROC (CV) |
+| ----------------------- | ------------- | ------------ |
+| **Regressão Logística** | **0.62**      | **0.86**     |
+| MLPClassifier           | 0.59          | 0.85         |
+| Random Forest           | 0.58          | 0.84         |
 
 A Regressão Logística venceu sem tuning de hiperparâmetros em nenhum dos três
 modelos. É um resultado plausível para esse volume de dados e número de
@@ -42,20 +42,20 @@ dados) para superar um linear bem regularizado.
 
 ## Performance (holdout, modelo de produção)
 
-| Métrica | Valor |
-|---|---|
-| F1-score (classe Churn) | 0.61 |
-| AUC-ROC | 0.85 |
-| Precisão (Churn) | 0.65 |
-| Recall (Churn) | 0.57 |
-| Acurácia geral | 0.80 |
+| Métrica                 | Valor |
+| ----------------------- | ----- |
+| F1-score (classe Churn) | 0.61  |
+| AUC-ROC                 | 0.85  |
+| Precisão (Churn)        | 0.65  |
+| Recall (Churn)          | 0.57  |
+| Acurácia geral          | 0.80  |
 
 Matriz de confusão (1.409 clientes no holdout):
 
-|  | Previsto: Não Churn | Previsto: Churn |
-|---|---|---|
-| **Real: Não Churn** | 918 | 117 |
-| **Real: Churn** | 160 | 214 |
+|                     | Previsto: Não Churn | Previsto: Churn |
+| ------------------- | ------------------- | --------------- |
+| **Real: Não Churn** | 918                 | 117             |
+| **Real: Churn**     | 160                 | 214             |
 
 **Referência:** um classificador que sempre prevê "não churn" tem F1 = 0 para a
 classe de interesse e 73,5% de acurácia — a acurácia geral não é uma métrica
@@ -79,7 +79,7 @@ técnicas principais (ver Etapa 1 no notebook).
   de demonstração da IBM); o modelo não deve ser assumido como generalizável
   para outras operadoras ou mercados sem revalidação.
 - **Não explica o motivo do churn**: como `Churn Reason` foi excluída (vazamento
-  de dado), o modelo prevê *quem* tem risco, não *por quê* — ofertas de
+  de dado), o modelo prevê _quem_ tem risco, não _por quê_ — ofertas de
   retenção direcionadas exigem análise complementar.
 
 ## Considerações de viés e uso responsável

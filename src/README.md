@@ -8,7 +8,11 @@ Layout previsto para a Etapa 3:
   treino quanto na API (refatoradas a partir do `notebooks/eda_baseline.ipynb`).
 - `train.py` — treino dos modelos (baseline, árvore/ensemble, MLP) e seleção do
   modelo campeão, salvando o resultado em `models/`.
-- `api/` — aplicação FastAPI com os endpoints `/health` e `/predict`.
+- `main.py` — ponto de entrada da aplicação FastAPI com os endpoints `/health` e
+  `/predict`.
+- `routes/` — definição dos endpoints da API.
+- `services/` — lógica de negócio e inferência do modelo.
+- `models/` — schemas e modelos de domínio.
 
 Cada módulo deve ser importável sem efeitos colaterais (sem código solto no
 nível do módulo), para permitir testes unitários com `pytest`.

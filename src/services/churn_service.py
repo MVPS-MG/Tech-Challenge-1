@@ -1,19 +1,12 @@
-"""API de inferência do modelo de churn.
-
-Uso: uvicorn src.api.main:app --reload
-"""
-
 from pathlib import Path
 
 import joblib
 import pandas as pd
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 
-from src.api.schemas import FIELD_TO_COLUMN, ChurnPrediction, CustomerFeatures
+from src.models.churnModel import FIELD_TO_COLUMN, ChurnPrediction, CustomerFeatures
 
 MODEL_PATH = Path("models") / "champion_model.joblib"
-
-app = FastAPI(title="Churn Prediction API")
 
 _model = None
 
@@ -35,13 +28,7 @@ def get_model():
     return _model
 
 
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
-
-@app.post("/predict", response_model=ChurnPrediction)
-def predict(customer: CustomerFeatures):
+def predict_customer(customer: CustomerFeatures) -> ChurnPrediction:
     model = get_model()
     payload = customer.model_dump()
     row = {FIELD_TO_COLUMN[field]: value for field, value in payload.items()}

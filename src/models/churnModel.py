@@ -1,7 +1,5 @@
 from pydantic import BaseModel, Field
 
-# Mapeia os campos do payload (snake_case) para as colunas originais do
-# dataset, que o preprocessing.py e o modelo esperam.
 FIELD_TO_COLUMN = {
     "gender": "Gender",
     "senior_citizen": "Senior Citizen",

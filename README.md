@@ -25,9 +25,13 @@ Detalhes de performance, limitações e vieses no [Model Card](docs/model_card.m
 ├── models/          # modelo campeão treinado (champion_model.joblib)
 ├── notebooks/       # EDA, comparação de modelos (experimentação)
 ├── src/
+│   ├── main.py           # entrypoint FastAPI
 │   ├── preprocessing.py  # limpeza de dados + pipeline de features
 │   ├── train.py          # treino do modelo campeão
-│   └── api/               # API FastAPI de inferência
+│   ├── routes/           # endpoints da API
+│   ├── services/         # lógica de inferência
+│   ├── models/           # schemas e modelos de domínio
+│   └── tests/            # testes específicos da camada src
 ├── tests/           # testes automatizados (pytest)
 └── requirements.txt
 ```
@@ -68,7 +72,7 @@ salva em `models/champion_model.joblib`.
 ## Rodar a API
 
 ```bash
-uvicorn src.api.main:app --reload
+uvicorn src.main:app --reload
 ```
 
 Endpoints:
@@ -96,7 +100,7 @@ curl -X POST http://127.0.0.1:8000/predict \
 ```
 
 ```json
-{"churn_probability": 0.7618, "churn_prediction": true}
+{ "churn_probability": 0.7618, "churn_prediction": true }
 ```
 
 ## Rodar os testes
