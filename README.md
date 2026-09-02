@@ -1,3 +1,8 @@
+# Video de apresentação do projeto
+
+https://drive.google.com/file/d/18m1avDowUf_jTnvzFswifccUP6C-tVQy/view
+
+
 # Tech Challenge 1 — Pipeline Preditivo de Churn
 
 Pipeline de Machine Learning para prever o risco de cancelamento (churn) de
