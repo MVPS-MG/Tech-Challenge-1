@@ -36,7 +36,6 @@ Detalhes de performance, limitações e vieses no [Model Card](docs/model_card.m
 │   ├── routes/           # endpoints da API
 │   ├── services/         # lógica de inferência
 │   ├── models/           # schemas e modelos de domínio
-│   └── tests/            # testes específicos da camada src
 ├── tests/           # testes automatizados (pytest)
 └── requirements.txt
 ```
